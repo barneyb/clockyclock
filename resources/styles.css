@@ -1,0 +1,19 @@
+.background {
+    viewport-fill: red;
+}
+
+#myLabel {
+    font-size: 80;
+    y: 50%;
+    fill: white;
+}
+
+.status {
+    font-size: 60;
+    font-family: System-Bold;
+    text-length: 32;
+    text-anchor: middle;
+    x: 50%;
+    y: $+40;
+    fill: #d9d9d9;
+}

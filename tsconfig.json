@@ -1,0 +1,14 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "strict": true,
+        "noEmit": true,
+        "lib": [
+            "es5",
+            "es2015.promise"
+        ],
+        "allowJs": true,
+        "checkJs": true
+    },
+    "extends": "./node_modules/@fitbit/sdk/sdk-tsconfig.json"
+}

@@ -1,0 +1,5 @@
+<svg class="background">
+  <text id="myLabel" class="status" />
+  <text id="hr" class="status" />
+  <text id="battery" class="status" />
+</svg>
