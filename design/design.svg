@@ -1,0 +1,37 @@
+<svg width="336" height="336" viewBox="0 0 336 336" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="GradientPad"
+                        cx="0.5" cy="1" r="1"
+                        spreadMethod="pad">
+            <stop offset="0%" stop-color="red"/>
+            <stop offset="100%" stop-color="green"/>
+        </radialGradient>
+    </defs>
+    <rect fill="url(#GradientPad)" x="0" y="0" width="336" height="336" rx="50" ry="50" />
+<!--    <gradientRect x="0" y="0" width="100%" height="100%"-->
+<!--                  gradient-type="bilinear"-->
+<!--                  gradient-x1="30" gradient-y1="30"-->
+<!--                  gradient-x2="100%-60" gradient-y2="100%-60"-->
+<!--                  gradient-color1="cyan"-->
+<!--                  gradient-color2="white"-->
+<!--                  gradient-color3="magenta"-->
+<!--                  gradient-color4="green" />-->
+    <g transform="translate(3, 3)">
+        <g transform="translate(165, 165)" stroke="white" stroke-linecap="round">
+            <!-- bezel -->
+            <circle cx="0" cy="0" r="110"
+                    stroke="#999" stroke-opacity="0.7"
+                    fill="black" fill-opacity="0.6" />
+            <!-- hour hand -->
+            <g id="hand_hour" transform="rotate(302.5)">
+                <line x1="0" y1="-50" x2="0" y2="0" stroke-width="8" />
+            </g>
+            <!-- minute hand -->
+            <g id="hand_minute" transform="rotate(30)">
+                <line x1="0" y1="-90" x2="0" y2="0" stroke-width="4" />
+            </g>
+            <!-- center dot -->
+            <circle cx="0" cy="0" r="7" fill="white" stroke-width="0" />
+        </g>
+    </g>
+</svg>
