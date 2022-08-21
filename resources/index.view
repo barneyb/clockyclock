@@ -4,13 +4,13 @@
     <text x="20" y="145" id="time">00:11</text>
     <g transform="translate(30,160)">
         <rect x="0" y="10" width="20" height="20" fill="fb-aqua" />
-        <text x="30" y="28" id="steps" class="stat">8,700</text>
+        <text x="30" y="28" id="steps" class="stat">99,999</text>
         <rect x="0" y="40" width="20" height="20" fill="fb-mint" />
-        <text x="30" y="58" id="floors" class="stat">13</text>
+        <text x="30" y="58" id="floors" class="stat">999</text>
         <rect x="0" y="70" width="20" height="20" fill="fb-lavender" />
-        <text x="30" y="88" id="sleep" class="stat">87</text>
+        <text x="30" y="88" id="sleep" class="stat">999</text>
         <rect x="0" y="100" width="20" height="20" fill="fb-red" />
-        <text x="30" y="118" id="hr" class="stat">102</text>
+        <text x="30" y="118" id="hr" class="stat">999</text>
     </g>
     <g transform="translate(40,336) rotate(-30) scale(1.15,1)">
         <rect width="296" height="3" fill="red" />

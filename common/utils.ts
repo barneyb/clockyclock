@@ -3,8 +3,25 @@ export function zeroPad(i: number) {
     return (i < 10 ? "0" : "") + i;
 }
 
-export function dateString(date: Date) {
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`; //YYYY-MM-DD
+export function intString(i: number | undefined) {
+    if (i == undefined) return "-";
+    if (i === 0) return "0";
+    let result = "";
+    while (i > 0) {
+        if (result.length > 0) result = "," + result;
+        result = (i % 1000) + result
+        i = Math.floor(i / 1000);
+    }
+    return result;
+}
+
+export function getDateString(d: Date) {
+    return dayName(d.getDay()) + ", " + d.getDate() + " " + monthName(d.getMonth());
+}
+
+export function getTimeString(d: Date) {
+    const hours = d.getHours()
+    return (hours === 0 ? 12 : hours <= 12 ? hours : hours % 12) + ":" + zeroPad(d.getMinutes());
 }
 
 export function dayName(day: number) {

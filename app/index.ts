@@ -1,23 +1,29 @@
 import clock from "clock";
 import document from "document";
-import { dayName, monthName, zeroPad } from "../common/utils";
+import { getDateString, getTimeString, intString } from "../common/utils";
+import { me as appbit } from "appbit";
+import { today } from "user-activity"
+import { display } from "display";
 
 clock.granularity = "minutes";
 
 const $date = document.getElementById("date")!;
 const $time = document.getElementById("time")!;
-
-function getDateString(d: Date) {
-    return dayName(d.getDay()) + ", " + d.getDate() + " " + monthName(d.getMonth());
-}
-
-function getTimeString(d: Date) {
-    const hours = d.getHours()
-    return (hours === 0 ? 12 : hours <= 12 ? hours : hours % 12) + ":" + zeroPad(d.getMinutes());
-}
-
-clock.ontick = (evt) => {
-    const now = evt.date;
+clock.ontick = (e) => {
+    const now = e.date;
     $date.text = getDateString(now);
     $time.text = getTimeString(now);
 }
+
+const $steps = document.getElementById("steps")!;
+const $floors = document.getElementById("floors")!;
+display.onchange = (e) => {
+    if (!display.on) return;
+    let steps = "-", floors = "-";
+    if (appbit.permissions.granted("access_activity")) {
+        steps = intString(today.adjusted.steps);
+        floors = intString(today.adjusted.elevationGain);
+    }
+    $steps.text = steps;
+    $floors.text = floors;
+};
