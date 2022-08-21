@@ -1,16 +1,23 @@
 import clock from "clock";
 import document from "document";
+import { dayName, monthName, zeroPad } from "../common/utils";
 
 clock.granularity = "minutes";
 
-const hourHand = document.getElementById("hand_hour") as GroupElement;
-const minuteHand = document.getElementById("hand_minute") as GroupElement;
+const $date = document.getElementById("date")!;
+const $time = document.getElementById("time")!;
+
+function getDateString(d: Date) {
+    return dayName(d.getDay()) + ", " + d.getDate() + " " + monthName(d.getMonth());
+}
+
+function getTimeString(d: Date) {
+    const hours = d.getHours()
+    return (hours === 0 ? 12 : hours <= 12 ? hours : hours % 12) + ":" + zeroPad(d.getMinutes());
+}
+
 clock.ontick = (evt) => {
     const now = evt.date;
-    const hours = now.getHours() % 12;
-    const minutes = now.getMinutes();
-    const hourRot = 360 / 12 * (hours + minutes / 60);
-    const minRot = 360 / 60 * minutes;
-    hourHand.groupTransform!.rotate.angle = hourRot;
-    minuteHand.groupTransform!.rotate.angle = minRot;
+    $date.text = getDateString(now);
+    $time.text = getTimeString(now);
 }
