@@ -8,7 +8,7 @@
         <rect x="0" y="40" width="20" height="20" fill="fb-mint" />
         <text x="30" y="58" id="floors" class="stat">999</text>
         <rect x="0" y="70" width="20" height="20" fill="fb-lavender" />
-        <text x="30" y="88" id="sleep" class="stat">999</text>
+        <text x="30" y="88" id="sleep" class="stat">---</text>
         <rect x="0" y="100" width="20" height="20" fill="fb-red" />
         <text x="30" y="118" id="hr" class="stat">999</text>
     </g>

@@ -3,7 +3,7 @@ export function zeroPad(i: number) {
     return (i < 10 ? "0" : "") + i;
 }
 
-export function intString(i: number | undefined) {
+export function intString(i: number | null | undefined) {
     if (i == undefined) return "-";
     if (i === 0) return "0";
     let result = "";
