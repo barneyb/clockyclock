@@ -47,7 +47,7 @@ updateActivity();
 
 if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
     const $hr = document.getElementById("hr")!;
-    const hrm = new HeartRateSensor();
+    const hrm = new HeartRateSensor({ frequency: 2, });
     hrm.addEventListener("reading", () => {
         console.log("HR: " + hrm.heartRate);
         $hr.text = intString(hrm.heartRate);
