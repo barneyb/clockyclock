@@ -5,7 +5,8 @@ export function zeroPad(i: number) {
 
 export function intString(i: number | null | undefined) {
     if (i == undefined) return "-";
-    if (i === 0) return "0";
+    if (i < 1) return "0";
+    i = Math.floor(i);
     let result = "";
     while (i > 0) {
         if (result.length > 0) result = "," + result;
@@ -13,6 +14,10 @@ export function intString(i: number | null | undefined) {
         i = Math.floor(i / 1000);
     }
     return result;
+}
+
+export function deg2rad(deg: number) {
+    return deg * Math.PI / 180;
 }
 
 export function getDateString(d: Date) {

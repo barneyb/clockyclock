@@ -1,19 +1,61 @@
 <svg>
-    <rect x="0" y="0" width="336" height="336" rx="50" ry="50" />
-    <text x="30" y="54" id="date">Tue, 20 Aug</text>
-    <text x="20" y="145" id="time">00:11</text>
+    <text x="30" y="54" id="date">Sat, 31 Dec</text>
+    <text x="20" y="145" id="time">11:59</text>
     <g transform="translate(30,160)">
-        <rect x="0" y="10" width="20" height="20" fill="fb-aqua" />
+        <rect x="0"  y="10" width="20" height="20" fill="fb-aqua" />
         <text x="30" y="28" id="steps" class="stat">99,999</text>
-        <rect x="0" y="40" width="20" height="20" fill="fb-mint" />
+        <rect x="0"  y="40" width="20" height="20" fill="fb-peach" />
         <text x="30" y="58" id="floors" class="stat">999</text>
-        <rect x="0" y="70" width="20" height="20" fill="fb-lavender" />
+        <rect x="0"  y="70" width="20" height="20" fill="fb-lavender" />
         <text x="30" y="88" id="sleep" class="stat">---</text>
-        <rect x="0" y="100" width="20" height="20" fill="fb-red" />
+        <rect x="0"  y="100" width="20" height="20" fill="fb-red" />
         <text x="30" y="118" id="hr" class="stat">999</text>
     </g>
-    <g transform="translate(40,336) rotate(-30) scale(1.15,1)">
-        <rect width="296" height="3" fill="red" />
-        <rect y="3" width="296" height="145" fill="red" />
+    <!-- todo: make the left edges follow the screen's curve (or moreso!) -->
+    <!-- 100=38, 0=298, r=260 -->
+    <g transform="translate(100%-40,38)">
+        <line           x2="100%"           class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+    </g>
+    <g id="steps-line" transform="translate(40,336)">
+        <gradientRect width="296" height="3"
+            gradient-type="linear"
+            gradient-x1="0" gradient-y1="0"
+            gradient-x2="100%" gradient-y2="0"
+            gradient-color1="fb-aqua" gradient-color2="fb-aqua"
+            gradient-opacity1="0" gradient-opacity2="0.7"
+        />
+        <gradientRect width="296" height="80"
+            gradient-type="linear"
+            gradient-x1="100%" gradient-y1="0"
+            gradient-x2="0" gradient-y2="100%"
+            gradient-color1="fb-aqua" gradient-color2="fb-aqua"
+            gradient-opacity1="0.4" gradient-opacity2="0"
+        />
+    </g>
+    <g id="floors-line" transform="translate(40,336)">
+        <gradientRect width="296" height="3"
+            gradient-type="linear"
+            gradient-x1="0" gradient-y1="0"
+            gradient-x2="100%" gradient-y2="0"
+            gradient-color1="fb-peach" gradient-color2="fb-peach"
+            gradient-opacity1="0" gradient-opacity2="0.7"
+        />
+        <gradientRect width="296" height="80"
+            gradient-type="linear"
+            gradient-x1="100%" gradient-y1="0"
+            gradient-x2="0" gradient-y2="100%"
+            gradient-color1="fb-peach" gradient-color2="fb-peach"
+            gradient-opacity1="0.4" gradient-opacity2="0"
+        />
     </g>
 </svg>
