@@ -47,23 +47,22 @@
     </g>
     <text x="30" y="54" id="date">Sat, 31 Dec</text>
     <text x="20" y="145" id="time">11:59</text>
-    <g transform="translate(32,160)">
-        <!-- todo: icons! -->
-        <g>
-            <rect x="0"  y="10" width="20" height="20" fill="fb-aqua" />
-            <text x="30" y="28" id="steps" class="stat">999,999</text>
+    <g transform="translate(28,160)">
+        <g transform="translate(0,8)">
+            <image width="24" height="24" href="steps.png" class="steps" />
+            <text x="30" y="20" id="steps" class="stat">999,999</text>
         </g>
-        <g>
-            <rect x="0"  y="40" width="20" height="20" fill="fb-peach" />
-            <text x="30" y="58" id="floors" class="stat">999</text>
+        <g transform="translate(0,38)">
+            <image width="24" height="24" href="floors.png" class="floors" />
+            <text x="30" y="20" id="floors" class="stat">999</text>
         </g>
-        <g>
-            <rect x="0"  y="70" width="20" height="20" fill="fb-lavender" />
-            <text x="30" y="88" id="sleep" class="stat">999</text>
+        <g transform="translate(0,68)">
+            <image width="24" height="24" href="sleep.png" class="sleep" />
+            <text x="30" y="20" id="sleep" class="stat">999</text>
         </g>
-        <g>
-            <rect x="0"  y="100" width="20" height="20" fill="fb-red" />
-            <text x="30" y="118" id="hr" class="stat">999</text>
+        <g transform="translate(0,98)">
+            <image width="24" height="24" href="hr.png" class="hr" />
+            <text x="30" y="20" id="hr" class="stat">999</text>
         </g>
     </g>
 </svg>
