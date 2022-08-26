@@ -1,6 +1,8 @@
 // Add zero in front of numbers < 10
-export function zeroPad(i: number) {
-    return (i < 10 ? "0" : "") + i;
+export function zeroPad(i: number, len: number=2) {
+    let s = i.toString();
+    while (s.length < len) s = "0" + s;
+    return s;
 }
 
 export function intString(i: number | null | undefined) {
@@ -10,7 +12,10 @@ export function intString(i: number | null | undefined) {
     let result = "";
     while (i > 0) {
         if (result.length > 0) result = "," + result;
-        result = (i % 1000) + result
+        result = (i > 999
+            ? zeroPad(i % 1000, 3)
+            : i
+        ) + result
         i = Math.floor(i / 1000);
     }
     return result;
