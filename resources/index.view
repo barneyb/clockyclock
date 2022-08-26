@@ -1,30 +1,17 @@
 <svg>
-    <text x="30" y="54" id="date">Sat, 31 Dec</text>
-    <text x="20" y="145" id="time">11:59</text>
-    <g transform="translate(30,160)">
-        <rect x="0"  y="10" width="20" height="20" fill="fb-aqua" />
-        <text x="30" y="28" id="steps" class="stat">99,999</text>
-        <rect x="0"  y="40" width="20" height="20" fill="fb-peach" />
-        <text x="30" y="58" id="floors" class="stat">999</text>
-        <rect x="0"  y="70" width="20" height="20" fill="fb-lavender" />
-        <text x="30" y="88" id="sleep" class="stat">---</text>
-        <rect x="0"  y="100" width="20" height="20" fill="fb-red" />
-        <text x="30" y="118" id="hr" class="stat">999</text>
-    </g>
-    <!-- todo: make the left edges follow the screen's curve (or moreso!) -->
     <!-- 100=38, 0=298, r=260 -->
     <g transform="translate(100%-40,38)">
-        <line           x2="100%"           class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
-        <line y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="0"            x2="100%"           class="tick" />
+        <line x1="5"  y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="9"  y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="12" y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="14" y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="15" y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="14" y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="12" y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="9"  y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="5"  y1="$+26" x2="100%" y2="$+26" class="tick" />
+        <line x1="0"  y1="$+26" x2="100%" y2="$+26" class="tick" />
     </g>
     <g id="steps-line" transform="translate(40,336)">
         <gradientRect width="296" height="3"
@@ -32,14 +19,14 @@
             gradient-x1="0" gradient-y1="0"
             gradient-x2="100%" gradient-y2="0"
             gradient-color1="fb-aqua" gradient-color2="fb-aqua"
-            gradient-opacity1="0" gradient-opacity2="0.7"
+            gradient-opacity1="0" gradient-opacity2="0.8"
         />
         <gradientRect width="296" height="80"
             gradient-type="linear"
             gradient-x1="100%" gradient-y1="0"
             gradient-x2="0" gradient-y2="100%"
             gradient-color1="fb-aqua" gradient-color2="fb-aqua"
-            gradient-opacity1="0.4" gradient-opacity2="0"
+            gradient-opacity1="0.5" gradient-opacity2="0"
         />
     </g>
     <g id="floors-line" transform="translate(40,336)">
@@ -48,14 +35,35 @@
             gradient-x1="0" gradient-y1="0"
             gradient-x2="100%" gradient-y2="0"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
-            gradient-opacity1="0" gradient-opacity2="0.7"
+            gradient-opacity1="0" gradient-opacity2="0.6"
         />
         <gradientRect width="296" height="80"
             gradient-type="linear"
             gradient-x1="100%" gradient-y1="0"
             gradient-x2="0" gradient-y2="100%"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
-            gradient-opacity1="0.4" gradient-opacity2="0"
+            gradient-opacity1="0.3" gradient-opacity2="0"
         />
+    </g>
+    <text x="30" y="54" id="date">Sat, 31 Dec</text>
+    <text x="20" y="145" id="time">11:59</text>
+    <g transform="translate(32,160)">
+        <!-- todo: icons! -->
+        <g>
+            <rect x="0"  y="10" width="20" height="20" fill="fb-aqua" />
+            <text x="30" y="28" id="steps" class="stat">999,999</text>
+        </g>
+        <g>
+            <rect x="0"  y="40" width="20" height="20" fill="fb-peach" />
+            <text x="30" y="58" id="floors" class="stat">999</text>
+        </g>
+        <g>
+            <rect x="0"  y="70" width="20" height="20" fill="fb-lavender" />
+            <text x="30" y="88" id="sleep" class="stat">999</text>
+        </g>
+        <g>
+            <rect x="0"  y="100" width="20" height="20" fill="fb-red" />
+            <text x="30" y="118" id="hr" class="stat">999</text>
+        </g>
     </g>
 </svg>

@@ -1,10 +1,11 @@
 import clock from "clock";
 import document from "document";
-import { deg2rad, getDateString, getTimeString, intString } from "../common/utils";
+import { getDateString, getTimeString, intString } from "../common/utils";
 import { me as appbit } from "appbit";
 import { goals, today } from "user-activity"
 import { display } from "display";
 import { HeartRateSensor } from "heart-rate";
+import { goalLine, hideParent } from "./elements";
 
 clock.granularity = "minutes";
 
@@ -16,48 +17,38 @@ clock.ontick = (e) => {
     $time.text = getTimeString(now);
 }
 
-const $steps = document.getElementById("steps")!;
-const $stepsLine = document.getElementById("steps-line") as GroupElement;
-const $floors = document.getElementById("floors")!;
-const $floorsLine = document.getElementById("floors-line") as GroupElement;
-const updateActivity = () => {
-    if (!display.on) return;
-    // todo: make this less duplicative
-    let steps = "-", floors = "-";
-    let stepPct = 0, floorPct = 0;
-    if (appbit.permissions.granted("access_activity")) {
-        steps = intString(today.adjusted.steps);
-        stepPct = Math.min(1, today.adjusted.steps! / goals.steps!);
-        floors = intString(today.adjusted.elevationGain);
-        floorPct = Math.min(1, today.adjusted.elevationGain! / goals.elevationGain!);
-    }
-    $steps.text = steps;
-    let angle = -45 * stepPct;
-    let scale = 1 / Math.cos(Math.abs(deg2rad(angle)));
-    $stepsLine.groupTransform!.rotate.angle = angle;
-    $stepsLine.groupTransform!.scale.x = scale;
-    angle = -45 * floorPct;
-    scale = 1 / Math.cos(Math.abs(deg2rad(angle)));
-    $floorsLine.groupTransform!.rotate.angle = angle;
-    $floorsLine.groupTransform!.scale.x = scale;
-    $floors.text = floors;
-};
-display.addEventListener("change", updateActivity);
-updateActivity();
+const $steps = document.getElementById("steps") as TextElement;
+const $floors = document.getElementById("floors") as TextElement;
+if (appbit.permissions.granted("access_activity")) {
+    const $stepsLine = document.getElementById("steps-line") as GroupElement;
+    const $floorsLine = document.getElementById("floors-line") as GroupElement;
+    const updateActivity = () => {
+        if (!display.on) return;
+        $steps.text = intString(today.adjusted.steps);
+        $floors.text = intString(today.adjusted.elevationGain);
+        goalLine($stepsLine, today.adjusted.steps!, goals.steps!)
+        goalLine($floorsLine, today.adjusted.elevationGain!, goals.elevationGain!)
+    };
+    display.addEventListener("change", updateActivity);
+    if (display.on) updateActivity();
+} else {
+    hideParent($steps);
+    hideParent($floors);
+}
 
+const $sleep = document.getElementById("sleep") as TextElement;
+hideParent($sleep); // todo: get this from the companion
+
+const $hr = document.getElementById("hr") as TextElement;
 if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
-    const $hr = document.getElementById("hr")!;
     const hrm = new HeartRateSensor({ frequency: 2, });
-    hrm.addEventListener("reading", () => {
-        console.log("HR: " + hrm.heartRate);
-        $hr.text = intString(hrm.heartRate);
-    });
-    display.addEventListener("change", () => {
-        if (display.on) {
-            hrm.start();
-        } else {
-            hrm.stop();
-        }
-    });
-    hrm.start();
+    hrm.addEventListener("reading", () =>
+        $hr.text = intString(hrm.heartRate));
+    display.addEventListener("change", () =>
+        display.on
+            ? hrm.start()
+            : hrm.stop());
+    if (display.on) hrm.start();
+} else {
+    hideParent($hr);
 }
