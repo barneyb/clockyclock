@@ -1,6 +1,6 @@
 text {
-    stroke: azure;
-    fill: azure;
+    stroke: whitesmoke;
+    fill: whitesmoke;
 }
 #date {
     font-size: 32;
@@ -9,6 +9,8 @@ text {
     font-weight: bold;
     font-size: 100;
     font-family: "System-Bold";
+    stroke: white;
+    fill: white;
 }
 .stat {
     font-size: 25;
