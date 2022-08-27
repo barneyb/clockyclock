@@ -13,7 +13,7 @@ text {
     fill: white;
 }
 .stat {
-    font-size: 25;
+    font-size: 30;
 }
 .tick {
     fill: fb-light-gray;
@@ -21,14 +21,14 @@ text {
     stroke-width: 1;
 }
 
+.icon {
+    opacity: 0.8;
+}
 .steps {
     fill: fb-aqua;
 }
 .floors {
     fill: fb-peach;
-}
-.sleep {
-    fill: fb-lavender;
 }
 .hr {
     fill: fb-red;

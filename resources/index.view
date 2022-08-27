@@ -35,34 +35,30 @@
             gradient-x1="0" gradient-y1="0"
             gradient-x2="100%" gradient-y2="0"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
-            gradient-opacity1="0" gradient-opacity2="0.6"
+            gradient-opacity1="0" gradient-opacity2="0.8"
         />
         <gradientRect width="276" height="80"
             gradient-type="linear"
             gradient-x1="100%" gradient-y1="0"
             gradient-x2="0" gradient-y2="100%"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
-            gradient-opacity1="0.3" gradient-opacity2="0"
+            gradient-opacity1="0.25" gradient-opacity2="0"
         />
     </g>
     <text x="30" y="54" id="date">Sat, 31 Dec</text>
     <text x="20" y="145" id="time">11:59</text>
-    <g transform="translate(25,160)">
-        <g transform="translate(0,8)">
-            <image width="24" height="24" href="steps.png" class="steps" />
-            <text x="32" y="20" id="steps" class="stat">999,999</text>
+    <g transform="translate(25,155)">
+        <g transform="translate(0,10)">
+            <image width="30" height="30" href="steps.png" class="icon steps" />
+            <text x="40" y="24" id="steps" class="stat">999,999</text>
         </g>
-        <g transform="translate(0,38)">
-            <image width="24" height="24" href="floors.png" class="floors" />
-            <text x="32" y="20" id="floors" class="stat">999</text>
+        <g transform="translate(0,50)">
+            <image width="30" height="30" href="floors.png" class="icon floors" />
+            <text x="40" y="24" id="floors" class="stat">999</text>
         </g>
-        <g transform="translate(0,68)">
-            <image width="24" height="24" href="sleep.png" class="sleep" />
-            <text x="32" y="20" id="sleep" class="stat">999</text>
-        </g>
-        <g transform="translate(0,98)">
-            <image width="24" height="24" href="hr.png" class="hr" />
-            <text x="32" y="20" id="hr" class="stat">999</text>
+        <g transform="translate(0,90)">
+            <image width="30" height="30" href="hr.png" class="icon hr" />
+            <text x="40" y="24" id="hr" class="stat">999</text>
         </g>
     </g>
 </svg>

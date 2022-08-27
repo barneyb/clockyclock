@@ -36,9 +36,6 @@ if (appbit.permissions.granted("access_activity")) {
     hideParent($floors);
 }
 
-const $sleep = document.getElementById("sleep") as TextElement;
-hideParent($sleep); // todo: get this from the companion
-
 const $hr = document.getElementById("hr") as TextElement;
 if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
     const hrm = new HeartRateSensor({ frequency: 2, });
