@@ -26,7 +26,7 @@
     },
     "scripts": {
         "build": "fitbit-build",
-        "prerelease": "rm -r build",
+        "prerelease": "rm -rf build",
         "release": "npm version major && git push --follow-tags origin",
         "postrelease": "npx fitbit-build",
         "test": "npx tsc test/index.ts && node test/index.js"
