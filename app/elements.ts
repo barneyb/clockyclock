@@ -17,4 +17,5 @@ export function goalLine($line: GroupElement, originX: number, progress: number)
     transform.translate.y = originY;
     transform.rotate.angle = deg;
     transform.scale.x = scale;
+    transform.scale.y = 1;
 }
