@@ -12,10 +12,7 @@ export function intString(i: number | null | undefined) {
     let result = "";
     while (i > 0) {
         if (result.length > 0) result = "," + result;
-        result = (i > 999
-            ? zeroPad(i % 1000, 3)
-            : i
-        ) + result
+        result = (i > 999 ? zeroPad(i % 1000, 3) : i) + result
         i = Math.floor(i / 1000);
     }
     return result;
@@ -23,6 +20,23 @@ export function intString(i: number | null | undefined) {
 
 export function deg2rad(deg: number) {
     return deg * Math.PI / 180;
+}
+
+export function rad2deg(rad: number) {
+    return rad * 180 / Math.PI;
+}
+
+export function goalY(progress: number) {
+    return 298 - 260 * progress;
+}
+
+export function rightEdge(y: number) {
+    if (y <= 0 || y >= 336) return 336;
+    // todo: this is pretty kludge...
+    const offset = 38;
+    const step = 26;
+    const xs = [316, 327, 331, 333, 334, 335, 334, 333, 331, 327, 316];
+    return xs[Math.floor((y - offset) / step)];
 }
 
 export function getDateString(d: Date) {

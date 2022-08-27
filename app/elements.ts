@@ -1,14 +1,20 @@
-import { deg2rad } from "../common/utils";
+import { goalY, rad2deg, rightEdge } from "../common/utils";
 
 export function hideParent(el: Element) {
-    (el.parent as GraphicsElement).style.opacity = 0;
+    (el.parent as GraphicsElement).style.display = 'none';
 }
 
-export function goalLine($line: GroupElement, actual: number, goal: number) {
-    const pct = actual / goal;
-    const adj = (260 * pct + 38) / 260;
-    const angle = -45 * adj;
-    const scale = 1 / Math.cos(Math.abs(deg2rad(angle)));
-    $line.groupTransform!.rotate.angle = angle;
-    $line.groupTransform!.scale.x = scale;
+export function goalLine($line: GroupElement, originX: number, progress: number) {
+    const originY = 336;
+    const y = goalY(progress);
+    const x = rightEdge(y);
+    const dx = x - originX;
+    const dy = y - originY;
+    const deg = rad2deg(Math.atan2(dy, dx));
+    const scale = Math.sqrt(dx * dx + dy * dy) / dx;
+    const transform = $line.groupTransform!;
+    transform.translate.x = originX;
+    transform.translate.y = originY;
+    transform.rotate.angle = deg;
+    transform.scale.x = scale;
 }
