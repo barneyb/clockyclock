@@ -31,11 +31,12 @@ export function goalY(progress: number) {
 }
 
 export function rightEdge(y: number) {
-    if (y <= 0 || y >= 336) return 336;
     // todo: this is pretty kludge...
     const offset = 38;
     const step = 26;
     const xs = [316, 327, 331, 333, 334, 335, 334, 333, 331, 327, 316];
+    if (y <= offset) return xs[0];
+    if (y >= offset + step * xs.length) return xs[xs.length - 1];
     return xs[Math.floor((y - offset) / step)];
 }
 

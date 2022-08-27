@@ -43,7 +43,7 @@
             gradient-x1="100%" gradient-y1="0"
             gradient-x2="0" gradient-y2="100%"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
-            gradient-opacity1="0.25" gradient-opacity2="0"
+            gradient-opacity1="0.5" gradient-opacity2="0"
         />
     </g>
     <text x="30" y="55" id="date">Sat, 31 Dec</text>
