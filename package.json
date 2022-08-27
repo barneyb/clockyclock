@@ -28,5 +28,6 @@
         "build": "fitbit-build",
         "release": "npm version major && git push --follow-tags origin",
         "test": "npx tsc test/index.ts && node test/index.js"
-    }
+    },
+    "version": "1.0.0"
 }
