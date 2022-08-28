@@ -26,10 +26,10 @@ if (appbit.permissions.granted("access_activity")) {
         if (!display.on) return;
         const steps = today.adjusted.steps!;
         $steps.text = intString(steps);
-        goalLine($stepsLine, 40, steps / goals.steps!)
+        goalLine($stepsLine, 20, steps / goals.steps!)
         const floors = today.adjusted.elevationGain!;
         $floors.text = intString(floors);
-        goalLine($floorsLine, 80, floors / goals.elevationGain!)
+        goalLine($floorsLine, 60, floors / goals.elevationGain!)
     };
     display.addEventListener("change", updateActivity);
     updateActivity();
