@@ -27,6 +27,7 @@
     },
     "scripts": {
         "build": "fitbit-build",
+        "convert": "convert \"$(ls Screenshot*.png -t1 | head -n 1)\" \\( -alpha extract design/masked.png \\) -compose copy_opacity -composite design/screenshot.png",
         "prerelease": "rm -rf build",
         "release": "npm version major && git push --follow-tags origin",
         "postrelease": "npx fitbit-build",
