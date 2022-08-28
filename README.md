@@ -5,7 +5,7 @@ Designed as a replacement for Spectrum, with a few new features:
 * include day of week
 * include floors
 * ticks on main display
-* progress lines are not goal-constrained
+* progress lines are not goal-constrained (pictured step and floor goals are ~4,500 and 10, respectively)
 * no tap action
 
 Sleep is lost, unfortunately. Couldn't find a way to get that number.
