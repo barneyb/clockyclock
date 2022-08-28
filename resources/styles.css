@@ -1,6 +1,6 @@
 text {
-    stroke: whitesmoke;
-    fill: whitesmoke;
+    stroke: #e6e6e6;
+    fill: #e6e6e6;
 }
 #date {
     font-size: 32;
@@ -22,7 +22,7 @@ text {
 }
 
 .icon {
-    opacity: 0.8;
+    opacity: 0.85;
 }
 .steps {
     fill: fb-aqua;
