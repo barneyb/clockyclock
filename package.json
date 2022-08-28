@@ -33,5 +33,5 @@
         "postrelease": "npx fitbit-build",
         "test": "npx tsc test/index.ts && node test/index.js"
     },
-    "version": "4.0.0"
+    "version": "5.0.0"
 }
