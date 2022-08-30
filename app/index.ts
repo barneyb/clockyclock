@@ -26,10 +26,17 @@ if (appbit.permissions.granted("access_activity")) {
         if (!display.on) return;
         const steps = today.adjusted.steps!;
         $steps.text = intString(steps);
-        goalLine($stepsLine, 20, steps / goals.steps!)
+        const stepFactor = steps / goals.steps!;
         const floors = today.adjusted.elevationGain!;
         $floors.text = intString(floors);
-        goalLine($floorsLine, 60, floors / goals.elevationGain!)
+        const floorFactor = floors / goals.elevationGain!;
+        if (stepFactor >= floorFactor) {
+            goalLine($stepsLine, 60, stepFactor);
+            goalLine($floorsLine, 20, floorFactor);
+        } else {
+            goalLine($stepsLine, 20, stepFactor);
+            goalLine($floorsLine, 60, floorFactor);
+        }
     };
     display.addEventListener("change", updateActivity);
     updateActivity();
