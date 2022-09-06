@@ -3,7 +3,7 @@ text {
     fill: #e6e6e6;
 }
 #date {
-    font-size: 32;
+    font-size: 30;
 }
 #time {
     font-weight: bold;
@@ -13,7 +13,7 @@ text {
     fill: white;
 }
 .stat {
-    font-size: 30;
+    font-size: 28;
 }
 .tick {
     fill: fb-light-gray;
@@ -32,4 +32,7 @@ text {
 }
 .hr {
     fill: fb-red;
+}
+.sleep {
+    fill: fb-purple;
 }

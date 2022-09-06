@@ -1,7 +1,19 @@
 import { goalY, rad2deg, rightEdge } from "../common/utils";
 
 export function hideParent(el: Element) {
-    (el.parent as GraphicsElement).style.display = 'none';
+    hide(el.parent!);
+}
+
+export function showParent(el: Element) {
+    show(el.parent!);
+}
+
+export function hide(el: Element) {
+    (el as GraphicsElement).style.display = 'none';
+}
+
+export function show(el: Element) {
+    (el as GraphicsElement).style.display = 'inline';
 }
 
 export function goalLine($line: GroupElement, originX: number, progress: number) {

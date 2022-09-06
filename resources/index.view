@@ -47,19 +47,22 @@
         />
     </g>
     <text x="30" y="55" id="date">Sat, 31 Dec</text>
-    <text x="20" y="145" id="time">11:59</text>
-    <g transform="translate(25,153)">
+    <text x="20" y="142" id="time">11:59</text>
+    <g transform="translate(25,150)">
         <g transform="translate(0,10)">
             <image width="30" height="30" href="steps.png" class="icon steps" />
             <text x="40" y="24" id="steps" class="stat">999,999</text>
         </g>
-        <g transform="translate(0,50)">
+        <g transform="translate(0,47)">
             <image width="30" height="30" href="floors.png" class="icon floors" />
             <text x="40" y="24" id="floors" class="stat">999</text>
         </g>
-        <g transform="translate(0,90)">
+        <g transform="translate(0,84)">
             <image width="30" height="30" href="hr.png" class="icon hr" />
             <text x="40" y="24" id="hr" class="stat">999</text>
+        </g>
+        <g transform="translate(0,121)">
+            <image width="30" height="30" href="sleep.png" id="sleep-icon" class="icon sleep" />
         </g>
     </g>
 </svg>

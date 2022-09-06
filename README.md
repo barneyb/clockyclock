@@ -8,7 +8,7 @@ Designed as a replacement for Spectrum, with a few new features:
 * progress lines are not goal-constrained (pictured step and floor goals are ~4,500 and 10, respectively)
 * no tap action
 
-Sleep is lost, unfortunately. Couldn't find a way to get that number.
+Sleep is lost, unfortunately. Couldn't find a way to get that number. But just swipe up to see your stats; it's right there. 
 
 Yeah, it's a stupid name. Whatever.
 
