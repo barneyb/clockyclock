@@ -10,6 +10,7 @@ import sleep from "sleep";
 
 clock.granularity = "minutes";
 
+const $core = document.getElementById("core") as GroupElement;
 const $date = document.getElementById("date") as GraphicsElement;
 const $time = document.getElementById("time") as GraphicsElement;
 clock.ontick = (e) => {
@@ -52,15 +53,13 @@ const updateSleep = () => {
         hide($floorsLine)
         hide($stats)
         hide($ticks)
-        $date.style.opacity = 0.5
-        $time.style.opacity = 0.5
+        $core.style.opacity = 0.3;
     } else {
         show($stepsLine)
         show($floorsLine)
         show($stats)
         show($ticks)
-        $date.style.opacity = 1
-        $time.style.opacity = 1
+        $core.style.opacity = 1;
     }
 };
 if (appbit.permissions.granted("access_activity")) {

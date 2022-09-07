@@ -46,8 +46,10 @@
             gradient-opacity1="0.5" gradient-opacity2="0"
         />
     </g>
-    <text x="30" y="55" id="date">Sat, 31 Dec</text>
-    <text x="20" y="142" id="time">11:59</text>
+    <g id="core">
+        <text x="30" y="55" id="date">Sat, 31 Dec</text>
+        <text x="20" y="142" id="time">11:59</text>
+    </g>
     <g id="stats" transform="translate(25,150)">
         <g transform="translate(0,10)">
             <image width="30" height="30" href="steps.png" class="icon steps" />
