@@ -10,8 +10,8 @@ import sleep from "sleep";
 
 clock.granularity = "minutes";
 
-const $date = document.getElementById("date")!;
-const $time = document.getElementById("time")!;
+const $date = document.getElementById("date") as GraphicsElement;
+const $time = document.getElementById("time") as GraphicsElement;
 clock.ontick = (e) => {
     const now = e.date;
     $date.text = getDateString(now);
@@ -40,16 +40,27 @@ const updateActivity = () => {
     updateSleep();
 };
 
-const $sleepIcon = document.getElementById("sleep-icon")!;
+function isAsleep() {
+    return sleep && sleep!.state === "asleep";
+}
+
+const $stats = document.getElementById("stats")!;
+const $ticks = document.getElementById("ticks")!;
 const updateSleep = () => {
-    if (sleep!.state === "asleep") {
+    if (isAsleep()) {
         hide($stepsLine)
         hide($floorsLine)
-        show($sleepIcon)
+        hide($stats)
+        hide($ticks)
+        $date.style.opacity = 0.5
+        $time.style.opacity = 0.5
     } else {
         show($stepsLine)
         show($floorsLine)
-        hide($sleepIcon)
+        show($stats)
+        show($ticks)
+        $date.style.opacity = 1
+        $time.style.opacity = 1
     }
 };
 if (appbit.permissions.granted("access_activity")) {
@@ -82,5 +93,4 @@ if (sleep && appbit.permissions.granted("access_sleep")) {
     updateSleep();
 } else {
     console.warn("Sleep API not supported on this device, or no permission")
-    hide($sleepIcon)
 }
