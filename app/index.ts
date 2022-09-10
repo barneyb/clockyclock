@@ -1,11 +1,11 @@
 import clock from "clock";
 import document from "document";
-import { getDateString, getTimeString, intString } from "../common/utils";
+import { getDateString, getTimeString } from "../common/utils";
 import { me as appbit } from "appbit";
 import { goals, today } from "user-activity"
 import { display } from "display";
 import { HeartRateSensor } from "heart-rate";
-import { goalLine, hide, hideParent, show } from "./elements";
+import { hide, LineIndicator, NumberIndicator, show } from "./elements";
 import sleep from "sleep";
 
 clock.granularity = "minutes";
@@ -19,25 +19,20 @@ clock.ontick = (e) => {
     $time.text = getTimeString(now);
 }
 
-const $steps = document.getElementById("steps") as TextElement;
-const $floors = document.getElementById("floors") as TextElement;
-const $stepsLine = document.getElementById("steps-line") as GroupElement;
-const $floorsLine = document.getElementById("floors-line") as GroupElement;
+const stepIndicator = new LineIndicator(
+    document.getElementById("steps") as TextElement,
+    document.getElementById("steps-line") as GroupElement,
+    20
+);
+const floorIndicator = new LineIndicator(
+    document.getElementById("floors") as TextElement,
+    document.getElementById("floors-line") as GroupElement,
+    60
+);
 const updateActivity = () => {
     if (!display.on) return;
-    const steps = today.adjusted.steps!;
-    $steps.text = intString(steps);
-    const stepFactor = steps / goals.steps!;
-    const floors = today.adjusted.elevationGain!;
-    $floors.text = intString(floors);
-    const floorFactor = floors / goals.elevationGain!;
-    if (stepFactor >= floorFactor) {
-        goalLine($stepsLine, 60, stepFactor);
-        goalLine($floorsLine, 20, floorFactor);
-    } else {
-        goalLine($stepsLine, 20, stepFactor);
-        goalLine($floorsLine, 60, floorFactor);
-    }
+    stepIndicator.update(today.adjusted.steps!, goals.steps!);
+    floorIndicator.update(today.adjusted.elevationGain!, goals.elevationGain!);
     updateSleep();
 };
 
@@ -49,14 +44,14 @@ const $stats = document.getElementById("stats")!;
 const $ticks = document.getElementById("ticks")!;
 const updateSleep = () => {
     if (isAsleep()) {
-        hide($stepsLine)
-        hide($floorsLine)
+        stepIndicator.hide()
+        floorIndicator.hide()
         hide($stats)
         hide($ticks)
         $core.style.opacity = 0.3;
     } else {
-        show($stepsLine)
-        show($floorsLine)
+        stepIndicator.show()
+        floorIndicator.show()
         show($stats)
         show($ticks)
         $core.style.opacity = 1;
@@ -66,16 +61,18 @@ if (appbit.permissions.granted("access_activity")) {
     display.addEventListener("change", updateActivity);
     updateActivity();
 } else {
-    hideParent($steps);
-    hideParent($floors);
+    stepIndicator.hide()
+    floorIndicator.hide()
 }
 
-const $hr = document.getElementById("hr") as TextElement;
+const hrIndicator = new NumberIndicator(
+    document.getElementById("hr") as TextElement
+);
 if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
     const hrm = new HeartRateSensor({ frequency: 2, });
     hrm.addEventListener("reading", () => {
         if (!display.on) return;
-        return $hr.text = intString(hrm.heartRate);
+        hrIndicator.update(hrm.heartRate!);
     });
     const updateHeartRate = () =>
         display.on
@@ -84,7 +81,7 @@ if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
     display.addEventListener("change", updateHeartRate);
     updateHeartRate();
 } else {
-    hideParent($hr);
+    hrIndicator.hide();
 }
 
 if (sleep && appbit.permissions.granted("access_sleep")) {
