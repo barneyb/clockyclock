@@ -19,38 +19,38 @@
             y="-1"
             width="100%" height="5"
             gradient-type="linear"
-            gradient-x1="0" gradient-y1="0"
-            gradient-x2="100%" gradient-y2="0"
+            gradient-x1="0%" gradient-y1="0"
+            gradient-x2="90%" gradient-y2="0"
             gradient-color1="fb-aqua" gradient-color2="fb-aqua"
             gradient-opacity1="0.1" gradient-opacity2="0.8"
         />
-        <!--gradientRect
-            width="100%" height="80"
+        <gradientRect
+            width="100%" height="100%"
             gradient-type="linear"
-            gradient-x1="100%" gradient-y1="0"
+            gradient-x1="0" gradient-y1="0"
             gradient-x2="0" gradient-y2="100%"
             gradient-color1="fb-aqua" gradient-color2="fb-aqua"
-            gradient-opacity1="0.5" gradient-opacity2="0"
-        /-->
+            gradient-opacity1="0.2" gradient-opacity2="0.1"
+        />
     </g>
     <g id="floors-line">
         <gradientRect
             y="-1"
             width="100%" height="5"
             gradient-type="linear"
-            gradient-x1="0" gradient-y1="0"
-            gradient-x2="100%" gradient-y2="0"
+            gradient-x1="0%" gradient-y1="0"
+            gradient-x2="90%" gradient-y2="0"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
             gradient-opacity1="0.1" gradient-opacity2="0.8"
         />
-        <!--gradientRect
-            width="100%" height="80"
+        <gradientRect
+            width="100%" height="100%"
             gradient-type="linear"
-            gradient-x1="100%" gradient-y1="0"
+            gradient-x1="0" gradient-y1="0"
             gradient-x2="0" gradient-y2="100%"
             gradient-color1="fb-peach" gradient-color2="fb-peach"
-            gradient-opacity1="0.5" gradient-opacity2="0"
-        /-->
+            gradient-opacity1="0.2" gradient-opacity2="0.1"
+        />
     </g>
     <g id="core">
         <text x="30" y="55" id="date">Sat, 31 Dec</text>
