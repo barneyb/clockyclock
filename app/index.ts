@@ -8,6 +8,8 @@ import { HeartRateSensor } from "heart-rate";
 import { hide, LineIndicator, NumberIndicator, show } from "./elements";
 import sleep from "sleep";
 
+/*SNAPSHOT*const SNAPSHOT = true;/**/
+
 clock.granularity = "minutes";
 
 const $core = document.getElementById("core") as GroupElement;
@@ -16,7 +18,7 @@ const $time = document.getElementById("time") as GraphicsElement;
 clock.ontick = (e) => {
     const now = e.date;
     $date.text = getDateString(now);
-    $time.text = getTimeString(now);
+    $time.text = /*SNAPSHOT*SNAPSHOT ? "3:47" : /**/getTimeString(now);
 }
 
 const stepIndicator = new LineIndicator(
@@ -31,8 +33,14 @@ const floorIndicator = new LineIndicator(
 );
 const updateActivity = () => {
     if (!display.on) return;
-    stepIndicator.update(today.adjusted.steps!, goals.steps!);
-    floorIndicator.update(today.adjusted.elevationGain!, goals.elevationGain!);
+    stepIndicator.update(
+        /*SNAPSHOT*SNAPSHOT ? 5432 : /**/today.adjusted.steps!,
+        /*SNAPSHOT*SNAPSHOT ? 10000 : /**/goals.steps!
+    );
+    floorIndicator.update(
+        /*SNAPSHOT*SNAPSHOT ? 8 : /**/today.adjusted.elevationGain!,
+        /*SNAPSHOT*SNAPSHOT ? 10 : /**/goals.elevationGain!
+    );
     updateSleep();
 };
 
@@ -72,7 +80,9 @@ if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
     const hrm = new HeartRateSensor({ frequency: 2, });
     hrm.addEventListener("reading", () => {
         if (!display.on) return;
-        hrIndicator.update(hrm.heartRate!);
+        hrIndicator.update(
+            /*SNAPSHOT*SNAPSHOT ? 69 : /**/hrm.heartRate!
+        );
     });
     const updateHeartRate = () =>
         display.on
