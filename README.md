@@ -6,6 +6,7 @@ Designed as a replacement for Spectrum, with a few improvements:
 * include floors
 * ticks on main display
 * progress lines are not goal-constrained
+* progress lines are less visually invasive
 * no tap action
 * automatic sleep mode
 
@@ -25,11 +26,11 @@ should work there as well. YMMV.
 
 Here's what it looks like:
 
-![Normal mode](design/screenshot_1.png)
+![Normal mode](design/screenshot1.png)
 
 And when you're sleeping:
 
-![Sleep mode](design/screenshot_2.png)
+![Sleep mode](design/screenshot2.png)
 
 ## Development
 
