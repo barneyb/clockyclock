@@ -12,7 +12,7 @@ Designed as a replacement for Spectrum, with a few improvements:
 
 Sleep is lost, unfortunately. Couldn't find a way to get that number. But just swipe up to see your stats; it's right there. 
 
-Yeah, it's a stupid name. Whatever.
+Yeah, it's a silly name. Whatever.
 
 ## Install
 
